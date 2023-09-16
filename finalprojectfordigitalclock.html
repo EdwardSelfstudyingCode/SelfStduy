@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    </head>
+
+    <body>  
+      <style>
+        body{
+          background-color: black;
+          font-size: 30px;
+          font-family: arial;
+          box-sizing:border-box;
+          padding: 0;
+          margin: 0;
+
+        }
+
+        .container{
+          width: 800px;
+          height:50px;
+          
+          position:fixed;
+          top: 20%;
+          left: 50%;
+          color: white;
+          transform: translate(-50%, -50%);
+          display: inline-block;
+          justify-content: center;
+          align-items: center;
+          font-size:100px;
+          z-index: -1;
+          text-align: center;
+        }
+      </style>
+
+
+
+      <div class="container">
+        <span id="hours"> 00</span>
+        <span > :</span>
+        <span id="minutes"> 00</span>
+        <span > :</span>
+        <span id="seconds"> 00</span>
+
+        <p></p>
+
+        <span id="Days">Days</span>
+        <span> /</span>
+        <span id="Month">Month</span>
+        <span> /</span>
+        <span id="Years"> Years</span>
+        
+      </div>
+
+      <script>  
+
+        let hours = document.getElementById("hours");
+        let minutes = document.getElementById("minutes");
+        let seconds = document.getElementById("seconds");
+        let years = document.getElementById("Years");
+        let month = document.getElementById("Month");
+        let days = document.getElementById("Days");
+
+        setInterval(()=> {
+          let realTime = new Date();
+          hours.innerHTML = (realTime.getHours() <10?"0":"") + realTime.getHours();
+          minutes.innerHTML = (realTime.getMinutes() <10?"0":"") + realTime.getMinutes();
+          seconds.innerHTML = (realTime.getSeconds() <10?"0":"") + realTime.getSeconds();
+          years.innerHTML = (realTime.getFullYear());
+          month.innerHTML = (realTime.getMonth() <10?"0":"") + (realTime.getMonth() + 1);
+          days.innerHTML = (realTime.getDate() <10? "0":"") + realTime.getDate();
+        },1000);
+
+
+      
+
+      </script>
+  </body>
+</html>
